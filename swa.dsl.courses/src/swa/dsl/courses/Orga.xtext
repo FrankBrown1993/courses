@@ -1,0 +1,24 @@
+grammar swa.dsl.courses.Orga with org.eclipse.xtext.common.Terminals
+
+generate orga "http://www.dsl.swa/courses/Orga"
+
+Model:
+	declarations+=Declaration*
+;
+
+Declaration : 
+	Course
+;
+
+Course:
+    'Course' title=STRING
+    'teached' 'by'
+    	(teachers+=Teacher)+
+    'visited' 'by'
+    	(students+=Student)+;
+
+Teacher:
+    name=STRING;
+
+Student:
+    name=STRING;

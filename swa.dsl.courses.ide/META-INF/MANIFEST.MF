@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: swa.dsl.courses.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: swa.dsl.courses.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: swa.dsl.courses.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: swa.dsl.courses,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: swa.dsl.courses.ide.contentassist.antlr.internal,
+ swa.dsl.courses.ide.contentassist.antlr

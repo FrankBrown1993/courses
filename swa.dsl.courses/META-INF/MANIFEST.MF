@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: swa.dsl.courses
+Bundle-ManifestVersion: 2
+Bundle-Name: swa.dsl.courses
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: swa.dsl.courses; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: swa.dsl.courses.orga.impl,
+ swa.dsl.courses.services,
+ swa.dsl.courses.orga,
+ swa.dsl.courses.scoping,
+ swa.dsl.courses.orga.util,
+ swa.dsl.courses.parser.antlr.internal,
+ swa.dsl.courses,
+ swa.dsl.courses.serializer,
+ swa.dsl.courses.generator,
+ swa.dsl.courses.parser.antlr,
+ swa.dsl.courses.validation
+Import-Package: org.apache.log4j
