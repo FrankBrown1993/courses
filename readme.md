@@ -1,4 +1,5 @@
 # generierungs-text
+```
 Course 'Cooking for Dummies'
 	teached by 
 		'Gordon Ramsay'
@@ -6,3 +7,4 @@ Course 'Cooking for Dummies'
 		'Max Mustermann'
 		'Meike Musterfrau'
 		'Marian Mustermensch'
+```
