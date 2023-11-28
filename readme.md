@@ -30,7 +30,6 @@ Generierung eines Stundenplans nach foglenden Kriterien möglich:
 
 ```
 Course 'Cooking for Dummies'
-	duration 90 min
 	type lecture
 	location '1H.205'
 	teached by 
