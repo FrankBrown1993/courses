@@ -23,3 +23,20 @@ Course 'Cooking for Dummies'
 		'Meike Musterfrau'
 		'Marian Mustermensch'
 ```
+## Type and Location (HSH-like)
+Generierung eines Stundenplans nach foglenden Kriterien möglich:  
+- Lehrende jeweils nur so viele Tage wie nötig in Uni  
+- wenig Raumwechsel
+
+```
+Course 'Cooking for Dummies'
+	duration 90 min
+	type lecture
+	location '1H.205'
+	teached by 
+		'Gordon Ramsay'
+	visited by 
+		'Max Mustermann'
+		'Meike Musterfrau'
+		'Marian Mustermensch'
+```
