@@ -9,9 +9,14 @@
     <genClasses ecoreClass="Orga.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Orga.ecore#//Model/declarations"/>
     </genClasses>
-    <genClasses ecoreClass="Orga.ecore#//Declaration"/>
+    <genClasses ecoreClass="Orga.ecore#//Declaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Declaration/audience"/>
+    </genClasses>
     <genClasses ecoreClass="Orga.ecore#//Course">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/department"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/course_cat"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Orga.ecore#//Course/teachers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Orga.ecore#//Course/students"/>
     </genClasses>
@@ -20,6 +25,9 @@
     </genClasses>
     <genClasses ecoreClass="Orga.ecore#//Student">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Student/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Orga.ecore#//Room">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Room/location"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

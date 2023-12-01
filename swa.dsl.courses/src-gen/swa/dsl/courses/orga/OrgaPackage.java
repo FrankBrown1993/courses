@@ -96,13 +96,22 @@ public interface OrgaPackage extends EPackage
   int DECLARATION = 1;
 
   /**
+   * The feature id for the '<em><b>Audience</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARATION__AUDIENCE = 0;
+
+  /**
    * The number of structural features of the '<em>Declaration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECLARATION_FEATURE_COUNT = 0;
+  int DECLARATION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link swa.dsl.courses.orga.impl.CourseImpl <em>Course</em>}' class.
@@ -115,6 +124,15 @@ public interface OrgaPackage extends EPackage
   int COURSE = 2;
 
   /**
+   * The feature id for the '<em><b>Audience</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COURSE__AUDIENCE = DECLARATION__AUDIENCE;
+
+  /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -124,13 +142,40 @@ public interface OrgaPackage extends EPackage
   int COURSE__TITLE = DECLARATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Department</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COURSE__DEPARTMENT = DECLARATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COURSE__TYPE = DECLARATION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Course cat</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COURSE__COURSE_CAT = DECLARATION_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Teachers</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COURSE__TEACHERS = DECLARATION_FEATURE_COUNT + 1;
+  int COURSE__TEACHERS = DECLARATION_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Students</b></em>' containment reference list.
@@ -139,7 +184,7 @@ public interface OrgaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COURSE__STUDENTS = DECLARATION_FEATURE_COUNT + 2;
+  int COURSE__STUDENTS = DECLARATION_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Course</em>' class.
@@ -148,7 +193,7 @@ public interface OrgaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COURSE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 3;
+  int COURSE_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link swa.dsl.courses.orga.impl.TeacherImpl <em>Teacher</em>}' class.
@@ -206,6 +251,43 @@ public interface OrgaPackage extends EPackage
    */
   int STUDENT_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link swa.dsl.courses.orga.impl.RoomImpl <em>Room</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see swa.dsl.courses.orga.impl.RoomImpl
+   * @see swa.dsl.courses.orga.impl.OrgaPackageImpl#getRoom()
+   * @generated
+   */
+  int ROOM = 5;
+
+  /**
+   * The feature id for the '<em><b>Audience</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROOM__AUDIENCE = DECLARATION__AUDIENCE;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROOM__LOCATION = DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Room</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROOM_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link swa.dsl.courses.orga.Model <em>Model</em>}'.
@@ -239,6 +321,17 @@ public interface OrgaPackage extends EPackage
   EClass getDeclaration();
 
   /**
+   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Declaration#getAudience <em>Audience</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Audience</em>'.
+   * @see swa.dsl.courses.orga.Declaration#getAudience()
+   * @see #getDeclaration()
+   * @generated
+   */
+  EAttribute getDeclaration_Audience();
+
+  /**
    * Returns the meta object for class '{@link swa.dsl.courses.orga.Course <em>Course</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -258,6 +351,39 @@ public interface OrgaPackage extends EPackage
    * @generated
    */
   EAttribute getCourse_Title();
+
+  /**
+   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Course#getDepartment <em>Department</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Department</em>'.
+   * @see swa.dsl.courses.orga.Course#getDepartment()
+   * @see #getCourse()
+   * @generated
+   */
+  EAttribute getCourse_Department();
+
+  /**
+   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Course#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see swa.dsl.courses.orga.Course#getType()
+   * @see #getCourse()
+   * @generated
+   */
+  EAttribute getCourse_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Course#getCourse_cat <em>Course cat</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Course cat</em>'.
+   * @see swa.dsl.courses.orga.Course#getCourse_cat()
+   * @see #getCourse()
+   * @generated
+   */
+  EAttribute getCourse_Course_cat();
 
   /**
    * Returns the meta object for the containment reference list '{@link swa.dsl.courses.orga.Course#getTeachers <em>Teachers</em>}'.
@@ -324,6 +450,27 @@ public interface OrgaPackage extends EPackage
   EAttribute getStudent_Name();
 
   /**
+   * Returns the meta object for class '{@link swa.dsl.courses.orga.Room <em>Room</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Room</em>'.
+   * @see swa.dsl.courses.orga.Room
+   * @generated
+   */
+  EClass getRoom();
+
+  /**
+   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Room#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Location</em>'.
+   * @see swa.dsl.courses.orga.Room#getLocation()
+   * @see #getRoom()
+   * @generated
+   */
+  EAttribute getRoom_Location();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -375,6 +522,14 @@ public interface OrgaPackage extends EPackage
     EClass DECLARATION = eINSTANCE.getDeclaration();
 
     /**
+     * The meta object literal for the '<em><b>Audience</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECLARATION__AUDIENCE = eINSTANCE.getDeclaration_Audience();
+
+    /**
      * The meta object literal for the '{@link swa.dsl.courses.orga.impl.CourseImpl <em>Course</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -391,6 +546,30 @@ public interface OrgaPackage extends EPackage
      * @generated
      */
     EAttribute COURSE__TITLE = eINSTANCE.getCourse_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Department</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COURSE__DEPARTMENT = eINSTANCE.getCourse_Department();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COURSE__TYPE = eINSTANCE.getCourse_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Course cat</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COURSE__COURSE_CAT = eINSTANCE.getCourse_Course_cat();
 
     /**
      * The meta object literal for the '<em><b>Teachers</b></em>' containment reference list feature.
@@ -443,6 +622,24 @@ public interface OrgaPackage extends EPackage
      * @generated
      */
     EAttribute STUDENT__NAME = eINSTANCE.getStudent_Name();
+
+    /**
+     * The meta object literal for the '{@link swa.dsl.courses.orga.impl.RoomImpl <em>Room</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see swa.dsl.courses.orga.impl.RoomImpl
+     * @see swa.dsl.courses.orga.impl.OrgaPackageImpl#getRoom()
+     * @generated
+     */
+    EClass ROOM = eINSTANCE.getRoom();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROOM__LOCATION = eINSTANCE.getRoom_Location();
 
   }
 

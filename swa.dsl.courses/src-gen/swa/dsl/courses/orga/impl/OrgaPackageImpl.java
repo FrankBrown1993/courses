@@ -15,6 +15,7 @@ import swa.dsl.courses.orga.Declaration;
 import swa.dsl.courses.orga.Model;
 import swa.dsl.courses.orga.OrgaFactory;
 import swa.dsl.courses.orga.OrgaPackage;
+import swa.dsl.courses.orga.Room;
 import swa.dsl.courses.orga.Student;
 import swa.dsl.courses.orga.Teacher;
 
@@ -60,6 +61,13 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   private EClass studentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass roomEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -162,6 +170,17 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   @Override
+  public EAttribute getDeclaration_Audience()
+  {
+    return (EAttribute)declarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCourse()
   {
     return courseEClass;
@@ -184,9 +203,42 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   @Override
+  public EAttribute getCourse_Department()
+  {
+    return (EAttribute)courseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCourse_Type()
+  {
+    return (EAttribute)courseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCourse_Course_cat()
+  {
+    return (EAttribute)courseEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getCourse_Teachers()
   {
-    return (EReference)courseEClass.getEStructuralFeatures().get(1);
+    return (EReference)courseEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -197,7 +249,7 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
   @Override
   public EReference getCourse_Students()
   {
-    return (EReference)courseEClass.getEStructuralFeatures().get(2);
+    return (EReference)courseEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -250,6 +302,28 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   @Override
+  public EClass getRoom()
+  {
+    return roomEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRoom_Location()
+  {
+    return (EAttribute)roomEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OrgaFactory getOrgaFactory()
   {
     return (OrgaFactory)getEFactoryInstance();
@@ -279,9 +353,13 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
     createEReference(modelEClass, MODEL__DECLARATIONS);
 
     declarationEClass = createEClass(DECLARATION);
+    createEAttribute(declarationEClass, DECLARATION__AUDIENCE);
 
     courseEClass = createEClass(COURSE);
     createEAttribute(courseEClass, COURSE__TITLE);
+    createEAttribute(courseEClass, COURSE__DEPARTMENT);
+    createEAttribute(courseEClass, COURSE__TYPE);
+    createEAttribute(courseEClass, COURSE__COURSE_CAT);
     createEReference(courseEClass, COURSE__TEACHERS);
     createEReference(courseEClass, COURSE__STUDENTS);
 
@@ -290,6 +368,9 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
 
     studentEClass = createEClass(STUDENT);
     createEAttribute(studentEClass, STUDENT__NAME);
+
+    roomEClass = createEClass(ROOM);
+    createEAttribute(roomEClass, ROOM__LOCATION);
   }
 
   /**
@@ -322,15 +403,20 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
 
     // Add supertypes to classes
     courseEClass.getESuperTypes().add(this.getDeclaration());
+    roomEClass.getESuperTypes().add(this.getDeclaration());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDeclaration_Audience(), ecorePackage.getEString(), "audience", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCourse_Title(), ecorePackage.getEString(), "title", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCourse_Department(), ecorePackage.getEString(), "department", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCourse_Type(), ecorePackage.getEString(), "type", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCourse_Course_cat(), ecorePackage.getEString(), "course_cat", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCourse_Teachers(), this.getTeacher(), null, "teachers", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCourse_Students(), this.getStudent(), null, "students", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -339,6 +425,9 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
 
     initEClass(studentEClass, Student.class, "Student", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStudent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Student.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRoom_Location(), ecorePackage.getEString(), "location", null, 0, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

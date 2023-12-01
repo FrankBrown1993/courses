@@ -32,6 +32,9 @@ import swa.dsl.courses.orga.Teacher;
  * </p>
  * <ul>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getDepartment <em>Department</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getType <em>Type</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getCourse_cat <em>Course cat</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getTeachers <em>Teachers</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getStudents <em>Students</em>}</li>
  * </ul>
@@ -59,6 +62,66 @@ public class CourseImpl extends DeclarationImpl implements Course
    * @ordered
    */
   protected String title = TITLE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDepartment() <em>Department</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDepartment()
+   * @generated
+   * @ordered
+   */
+  protected static final String DEPARTMENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDepartment() <em>Department</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDepartment()
+   * @generated
+   * @ordered
+   */
+  protected String department = DEPARTMENT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getCourse_cat() <em>Course cat</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCourse_cat()
+   * @generated
+   * @ordered
+   */
+  protected static final String COURSE_CAT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getCourse_cat() <em>Course cat</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCourse_cat()
+   * @generated
+   * @ordered
+   */
+  protected String course_cat = COURSE_CAT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getTeachers() <em>Teachers</em>}' containment reference list.
@@ -132,6 +195,81 @@ public class CourseImpl extends DeclarationImpl implements Course
    * @generated
    */
   @Override
+  public String getDepartment()
+  {
+    return department;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDepartment(String newDepartment)
+  {
+    String oldDepartment = department;
+    department = newDepartment;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.COURSE__DEPARTMENT, oldDepartment, department));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.COURSE__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getCourse_cat()
+  {
+    return course_cat;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCourse_cat(String newCourse_cat)
+  {
+    String oldCourse_cat = course_cat;
+    course_cat = newCourse_cat;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.COURSE__COURSE_CAT, oldCourse_cat, course_cat));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Teacher> getTeachers()
   {
     if (teachers == null)
@@ -186,6 +324,12 @@ public class CourseImpl extends DeclarationImpl implements Course
     {
       case OrgaPackage.COURSE__TITLE:
         return getTitle();
+      case OrgaPackage.COURSE__DEPARTMENT:
+        return getDepartment();
+      case OrgaPackage.COURSE__TYPE:
+        return getType();
+      case OrgaPackage.COURSE__COURSE_CAT:
+        return getCourse_cat();
       case OrgaPackage.COURSE__TEACHERS:
         return getTeachers();
       case OrgaPackage.COURSE__STUDENTS:
@@ -207,6 +351,15 @@ public class CourseImpl extends DeclarationImpl implements Course
     {
       case OrgaPackage.COURSE__TITLE:
         setTitle((String)newValue);
+        return;
+      case OrgaPackage.COURSE__DEPARTMENT:
+        setDepartment((String)newValue);
+        return;
+      case OrgaPackage.COURSE__TYPE:
+        setType((String)newValue);
+        return;
+      case OrgaPackage.COURSE__COURSE_CAT:
+        setCourse_cat((String)newValue);
         return;
       case OrgaPackage.COURSE__TEACHERS:
         getTeachers().clear();
@@ -233,6 +386,15 @@ public class CourseImpl extends DeclarationImpl implements Course
       case OrgaPackage.COURSE__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
+      case OrgaPackage.COURSE__DEPARTMENT:
+        setDepartment(DEPARTMENT_EDEFAULT);
+        return;
+      case OrgaPackage.COURSE__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
+      case OrgaPackage.COURSE__COURSE_CAT:
+        setCourse_cat(COURSE_CAT_EDEFAULT);
+        return;
       case OrgaPackage.COURSE__TEACHERS:
         getTeachers().clear();
         return;
@@ -255,6 +417,12 @@ public class CourseImpl extends DeclarationImpl implements Course
     {
       case OrgaPackage.COURSE__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+      case OrgaPackage.COURSE__DEPARTMENT:
+        return DEPARTMENT_EDEFAULT == null ? department != null : !DEPARTMENT_EDEFAULT.equals(department);
+      case OrgaPackage.COURSE__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case OrgaPackage.COURSE__COURSE_CAT:
+        return COURSE_CAT_EDEFAULT == null ? course_cat != null : !COURSE_CAT_EDEFAULT.equals(course_cat);
       case OrgaPackage.COURSE__TEACHERS:
         return teachers != null && !teachers.isEmpty();
       case OrgaPackage.COURSE__STUDENTS:
@@ -276,6 +444,12 @@ public class CourseImpl extends DeclarationImpl implements Course
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (title: ");
     result.append(title);
+    result.append(", department: ");
+    result.append(department);
+    result.append(", type: ");
+    result.append(type);
+    result.append(", course_cat: ");
+    result.append(course_cat);
     result.append(')');
     return result.toString();
   }

@@ -8,52 +8,51 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import swa.dsl.courses.orga.Declaration;
 import swa.dsl.courses.orga.OrgaPackage;
+import swa.dsl.courses.orga.Room;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Declaration</b></em>'.
+ * An implementation of the model object '<em><b>Room</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link swa.dsl.courses.orga.impl.DeclarationImpl#getAudience <em>Audience</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.impl.RoomImpl#getLocation <em>Location</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DeclarationImpl extends MinimalEObjectImpl.Container implements Declaration
+public class RoomImpl extends DeclarationImpl implements Room
 {
   /**
-   * The default value of the '{@link #getAudience() <em>Audience</em>}' attribute.
+   * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAudience()
+   * @see #getLocation()
    * @generated
    * @ordered
    */
-  protected static final String AUDIENCE_EDEFAULT = null;
+  protected static final String LOCATION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getAudience() <em>Audience</em>}' attribute.
+   * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAudience()
+   * @see #getLocation()
    * @generated
    * @ordered
    */
-  protected String audience = AUDIENCE_EDEFAULT;
+  protected String location = LOCATION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DeclarationImpl()
+  protected RoomImpl()
   {
     super();
   }
@@ -66,7 +65,7 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
   @Override
   protected EClass eStaticClass()
   {
-    return OrgaPackage.Literals.DECLARATION;
+    return OrgaPackage.Literals.ROOM;
   }
 
   /**
@@ -75,9 +74,9 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @generated
    */
   @Override
-  public String getAudience()
+  public String getLocation()
   {
-    return audience;
+    return location;
   }
 
   /**
@@ -86,12 +85,12 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @generated
    */
   @Override
-  public void setAudience(String newAudience)
+  public void setLocation(String newLocation)
   {
-    String oldAudience = audience;
-    audience = newAudience;
+    String oldLocation = location;
+    location = newLocation;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.DECLARATION__AUDIENCE, oldAudience, audience));
+      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.ROOM__LOCATION, oldLocation, location));
   }
 
   /**
@@ -104,8 +103,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
   {
     switch (featureID)
     {
-      case OrgaPackage.DECLARATION__AUDIENCE:
-        return getAudience();
+      case OrgaPackage.ROOM__LOCATION:
+        return getLocation();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +119,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
   {
     switch (featureID)
     {
-      case OrgaPackage.DECLARATION__AUDIENCE:
-        setAudience((String)newValue);
+      case OrgaPackage.ROOM__LOCATION:
+        setLocation((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +136,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
   {
     switch (featureID)
     {
-      case OrgaPackage.DECLARATION__AUDIENCE:
-        setAudience(AUDIENCE_EDEFAULT);
+      case OrgaPackage.ROOM__LOCATION:
+        setLocation(LOCATION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +153,8 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
   {
     switch (featureID)
     {
-      case OrgaPackage.DECLARATION__AUDIENCE:
-        return AUDIENCE_EDEFAULT == null ? audience != null : !AUDIENCE_EDEFAULT.equals(audience);
+      case OrgaPackage.ROOM__LOCATION:
+        return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
     }
     return super.eIsSet(featureID);
   }
@@ -171,10 +170,10 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (audience: ");
-    result.append(audience);
+    result.append(" (location: ");
+    result.append(location);
     result.append(')');
     return result.toString();
   }
 
-} //DeclarationImpl
+} //RoomImpl

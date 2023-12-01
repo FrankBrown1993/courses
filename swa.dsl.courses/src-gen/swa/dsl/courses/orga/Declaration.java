@@ -10,6 +10,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Declaration</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link swa.dsl.courses.orga.Declaration#getAudience <em>Audience</em>}</li>
+ * </ul>
  *
  * @see swa.dsl.courses.orga.OrgaPackage#getDeclaration()
  * @model
@@ -17,4 +23,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Declaration extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Audience</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Audience</em>' attribute.
+   * @see #setAudience(String)
+   * @see swa.dsl.courses.orga.OrgaPackage#getDeclaration_Audience()
+   * @model
+   * @generated
+   */
+  String getAudience();
+
+  /**
+   * Sets the value of the '{@link swa.dsl.courses.orga.Declaration#getAudience <em>Audience</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Audience</em>' attribute.
+   * @see #getAudience()
+   * @generated
+   */
+  void setAudience(String value);
+
 } // Declaration

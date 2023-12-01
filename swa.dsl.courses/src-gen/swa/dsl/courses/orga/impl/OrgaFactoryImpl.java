@@ -70,6 +70,7 @@ public class OrgaFactoryImpl extends EFactoryImpl implements OrgaFactory
       case OrgaPackage.COURSE: return createCourse();
       case OrgaPackage.TEACHER: return createTeacher();
       case OrgaPackage.STUDENT: return createStudent();
+      case OrgaPackage.ROOM: return createRoom();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -133,6 +134,18 @@ public class OrgaFactoryImpl extends EFactoryImpl implements OrgaFactory
   {
     StudentImpl student = new StudentImpl();
     return student;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Room createRoom()
+  {
+    RoomImpl room = new RoomImpl();
+    return room;
   }
 
   /**

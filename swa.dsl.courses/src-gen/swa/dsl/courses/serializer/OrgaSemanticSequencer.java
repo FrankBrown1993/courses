@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import swa.dsl.courses.orga.Course;
 import swa.dsl.courses.orga.Model;
 import swa.dsl.courses.orga.OrgaPackage;
+import swa.dsl.courses.orga.Room;
 import swa.dsl.courses.orga.Student;
 import swa.dsl.courses.orga.Teacher;
 import swa.dsl.courses.services.OrgaGrammarAccess;
@@ -41,6 +42,9 @@ public class OrgaSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case OrgaPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case OrgaPackage.ROOM:
+				sequence_Room(context, (Room) semanticObject); 
+				return; 
 			case OrgaPackage.STUDENT:
 				sequence_Student(context, (Student) semanticObject); 
 				return; 
@@ -59,7 +63,15 @@ public class OrgaSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Course returns Course
 	 *
 	 * Constraint:
-	 *     (title=STRING teachers+=Teacher+ students+=Student+)
+	 *     (
+	 *         title=STRING 
+	 *         department=STRING 
+	 *         type=STRING 
+	 *         audience=ID 
+	 *         course_cat=STRING 
+	 *         teachers+=Teacher+ 
+	 *         students+=Student+
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Course(ISerializationContext context, Course semanticObject) {
@@ -78,6 +90,30 @@ public class OrgaSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Declaration returns Room
+	 *     Room returns Room
+	 *
+	 * Constraint:
+	 *     (location=STRING audience=ID)
+	 * </pre>
+	 */
+	protected void sequence_Room(ISerializationContext context, Room semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, OrgaPackage.Literals.ROOM__LOCATION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OrgaPackage.Literals.ROOM__LOCATION));
+			if (transientValues.isValueTransient(semanticObject, OrgaPackage.Literals.DECLARATION__AUDIENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, OrgaPackage.Literals.DECLARATION__AUDIENCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRoomAccess().getLocationSTRINGTerminalRuleCall_1_0(), semanticObject.getLocation());
+		feeder.accept(grammarAccess.getRoomAccess().getAudienceIDTerminalRuleCall_3_0(), semanticObject.getAudience());
+		feeder.finish();
 	}
 	
 	

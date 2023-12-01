@@ -1,0 +1,83 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: system-ui;
+}
+
+body {
+	width: 100vw;
+	height: 95vh;
+}
+
+h1 {
+	width: 100%;
+	text-align: center;
+	margin-top: 3vh;
+	margin-bottom: 5vh;
+}
+
+.table {
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-start;
+	margin-left: 1.5vw;
+	margin-right: 1.5vw;
+	margin-top: 5vh;
+}
+.headline, .line {
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-start;
+}
+.headline {
+	font-weight: bold;
+}
+.headline > div {
+	padding: 1vw;
+}
+.line > div {
+	padding-left: 1vw;
+	padding-right: 1vw;
+}
+
+.tblock, .dblock, .block {
+	text-align: center;
+	border-bottom: 0.1vw solid lightgray;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+}
+
+.tblock {
+	width: 12vw;
+}
+.dblock, .block {
+	border-left: 0.1vw solid lightgray;
+	width: 17vw;
+}
+.dblock * {
+	cursor: pointer;
+}
+.dblock {
+	cursor: pointer;
+}
+.dblock:hover {
+	-webkit-box-shadow: 1px 10px 15px 0px rgba(0,0,0,0.33);
+	box-shadow: 1px 10px 15px 0px rgba(0,0,0,0.33);
+}
+
+.space {
+	visibility: hidden;
+}
+.title {
+	font-size: 1.1vw;
+	margin-bottom: 0.5vw;
+	margin-top: 0.5vw;
+}
+.infos {
+	width: 100%;
+	font-size: 0.8vw;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+}

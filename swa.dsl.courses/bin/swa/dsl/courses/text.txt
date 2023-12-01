@@ -1,7 +1,14 @@
 Course 'Cooking for Dummies'
+	department is 'BCK'
+	type is 'lecture'
+	audience is big
+	course category 'lectures'
 	teached by 
 		'Gordon Ramsay'
 	visited by 
 		'Max Mustermann'
 		'Meike Musterfrau'
 		'Marian Mustermensch'
+Room '1H.001' is big
+Room '1H.002' is medium
+Room '1H.003' is small

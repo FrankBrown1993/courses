@@ -111,14 +111,25 @@ ruleDeclaration returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getDeclarationAccess().getCourseParserRuleCall());
-	}
-	this_Course_0=ruleCourse
-	{
-		$current = $this_Course_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		{
+			newCompositeNode(grammarAccess.getDeclarationAccess().getCourseParserRuleCall_0());
+		}
+		this_Course_0=ruleCourse
+		{
+			$current = $this_Course_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getDeclarationAccess().getRoomParserRuleCall_1());
+		}
+		this_Room_1=ruleRoom
+		{
+			$current = $this_Room_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleCourse
@@ -159,20 +170,124 @@ ruleCourse returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='teached'
+		otherlv_2='department'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getCourseAccess().getTeachedKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getCourseAccess().getDepartmentKeyword_2());
 		}
-		otherlv_3='by'
+		otherlv_3='is'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getCourseAccess().getByKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getCourseAccess().getIsKeyword_3());
+		}
+		(
+			(
+				lv_department_4_0=RULE_STRING
+				{
+					newLeafNode(lv_department_4_0, grammarAccess.getCourseAccess().getDepartmentSTRINGTerminalRuleCall_4_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCourseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"department",
+						lv_department_4_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_5='type'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getCourseAccess().getTypeKeyword_5());
+		}
+		otherlv_6='is'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getCourseAccess().getIsKeyword_6());
+		}
+		(
+			(
+				lv_type_7_0=RULE_STRING
+				{
+					newLeafNode(lv_type_7_0, grammarAccess.getCourseAccess().getTypeSTRINGTerminalRuleCall_7_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCourseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"type",
+						lv_type_7_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_8='audience'
+		{
+			newLeafNode(otherlv_8, grammarAccess.getCourseAccess().getAudienceKeyword_8());
+		}
+		otherlv_9='is'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getCourseAccess().getIsKeyword_9());
+		}
+		(
+			(
+				lv_audience_10_0=RULE_ID
+				{
+					newLeafNode(lv_audience_10_0, grammarAccess.getCourseAccess().getAudienceIDTerminalRuleCall_10_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCourseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"audience",
+						lv_audience_10_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_11='course'
+		{
+			newLeafNode(otherlv_11, grammarAccess.getCourseAccess().getCourseKeyword_11());
+		}
+		otherlv_12='category'
+		{
+			newLeafNode(otherlv_12, grammarAccess.getCourseAccess().getCategoryKeyword_12());
+		}
+		(
+			(
+				lv_course_cat_13_0=RULE_STRING
+				{
+					newLeafNode(lv_course_cat_13_0, grammarAccess.getCourseAccess().getCourse_catSTRINGTerminalRuleCall_13_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCourseRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"course_cat",
+						lv_course_cat_13_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_14='teached'
+		{
+			newLeafNode(otherlv_14, grammarAccess.getCourseAccess().getTeachedKeyword_14());
+		}
+		otherlv_15='by'
+		{
+			newLeafNode(otherlv_15, grammarAccess.getCourseAccess().getByKeyword_15());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCourseAccess().getTeachersTeacherParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCourseAccess().getTeachersTeacherParserRuleCall_16_0());
 				}
-				lv_teachers_4_0=ruleTeacher
+				lv_teachers_16_0=ruleTeacher
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCourseRule());
@@ -180,26 +295,26 @@ ruleCourse returns [EObject current=null]
 					add(
 						$current,
 						"teachers",
-						lv_teachers_4_0,
+						lv_teachers_16_0,
 						"swa.dsl.courses.Orga.Teacher");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		otherlv_5='visited'
+		otherlv_17='visited'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getCourseAccess().getVisitedKeyword_5());
+			newLeafNode(otherlv_17, grammarAccess.getCourseAccess().getVisitedKeyword_17());
 		}
-		otherlv_6='by'
+		otherlv_18='by'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getCourseAccess().getByKeyword_6());
+			newLeafNode(otherlv_18, grammarAccess.getCourseAccess().getByKeyword_18());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getCourseAccess().getStudentsStudentParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getCourseAccess().getStudentsStudentParserRuleCall_19_0());
 				}
-				lv_students_7_0=ruleStudent
+				lv_students_19_0=ruleStudent
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getCourseRule());
@@ -207,7 +322,7 @@ ruleCourse returns [EObject current=null]
 					add(
 						$current,
 						"students",
-						lv_students_7_0,
+						lv_students_19_0,
 						"swa.dsl.courses.Orga.Student");
 					afterParserOrEnumRuleCall();
 				}
@@ -282,6 +397,69 @@ ruleStudent returns [EObject current=null]
 					lv_name_0_0,
 					"org.eclipse.xtext.common.Terminals.STRING");
 			}
+		)
+	)
+;
+
+// Entry rule entryRuleRoom
+entryRuleRoom returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRoomRule()); }
+	iv_ruleRoom=ruleRoom
+	{ $current=$iv_ruleRoom.current; }
+	EOF;
+
+// Rule Room
+ruleRoom returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Room'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getRoomAccess().getRoomKeyword_0());
+		}
+		(
+			(
+				lv_location_1_0=RULE_STRING
+				{
+					newLeafNode(lv_location_1_0, grammarAccess.getRoomAccess().getLocationSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRoomRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"location",
+						lv_location_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_2='is'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getRoomAccess().getIsKeyword_2());
+		}
+		(
+			(
+				lv_audience_3_0=RULE_ID
+				{
+					newLeafNode(lv_audience_3_0, grammarAccess.getRoomAccess().getAudienceIDTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRoomRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"audience",
+						lv_audience_3_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
 		)
 	)
 ;

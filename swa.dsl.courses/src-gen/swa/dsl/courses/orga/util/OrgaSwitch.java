@@ -109,6 +109,14 @@ public class OrgaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case OrgaPackage.ROOM:
+      {
+        Room room = (Room)theEObject;
+        T result = caseRoom(room);
+        if (result == null) result = caseDeclaration(room);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -189,6 +197,22 @@ public class OrgaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStudent(Student object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Room</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Room</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRoom(Room object)
   {
     return null;
   }

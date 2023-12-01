@@ -101,6 +101,11 @@ public class OrgaAdapterFactory extends AdapterFactoryImpl
         return createStudentAdapter();
       }
       @Override
+      public Adapter caseRoom(Room object)
+      {
+        return createRoomAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -193,6 +198,21 @@ public class OrgaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStudentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link swa.dsl.courses.orga.Room <em>Room</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see swa.dsl.courses.orga.Room
+   * @generated
+   */
+  public Adapter createRoomAdapter()
   {
     return null;
   }

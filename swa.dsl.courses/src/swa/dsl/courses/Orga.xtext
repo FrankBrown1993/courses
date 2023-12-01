@@ -7,11 +7,15 @@ Model:
 ;
 
 Declaration : 
-	Course
+	Course | Room
 ;
 
 Course:
     'Course' title=STRING
+    'department' 'is' department=STRING
+    'type' 'is' type=STRING 
+    'audience' 'is' audience=ID
+    'course' 'category' course_cat=STRING
     'teached' 'by'
     	(teachers+=Teacher)+
     'visited' 'by'
@@ -22,3 +26,7 @@ Teacher:
 
 Student:
     name=STRING;
+    
+Room:
+	'Room' location=STRING 'is' audience=ID
+;

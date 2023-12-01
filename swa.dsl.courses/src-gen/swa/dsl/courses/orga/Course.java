@@ -15,6 +15,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link swa.dsl.courses.orga.Course#getTitle <em>Title</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.Course#getDepartment <em>Department</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.Course#getType <em>Type</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.Course#getCourse_cat <em>Course cat</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.Course#getTeachers <em>Teachers</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.Course#getStudents <em>Students</em>}</li>
  * </ul>
@@ -46,6 +49,72 @@ public interface Course extends Declaration
    * @generated
    */
   void setTitle(String value);
+
+  /**
+   * Returns the value of the '<em><b>Department</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Department</em>' attribute.
+   * @see #setDepartment(String)
+   * @see swa.dsl.courses.orga.OrgaPackage#getCourse_Department()
+   * @model
+   * @generated
+   */
+  String getDepartment();
+
+  /**
+   * Sets the value of the '{@link swa.dsl.courses.orga.Course#getDepartment <em>Department</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Department</em>' attribute.
+   * @see #getDepartment()
+   * @generated
+   */
+  void setDepartment(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see swa.dsl.courses.orga.OrgaPackage#getCourse_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link swa.dsl.courses.orga.Course#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
+
+  /**
+   * Returns the value of the '<em><b>Course cat</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Course cat</em>' attribute.
+   * @see #setCourse_cat(String)
+   * @see swa.dsl.courses.orga.OrgaPackage#getCourse_Course_cat()
+   * @model
+   * @generated
+   */
+  String getCourse_cat();
+
+  /**
+   * Sets the value of the '{@link swa.dsl.courses.orga.Course#getCourse_cat <em>Course cat</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Course cat</em>' attribute.
+   * @see #getCourse_cat()
+   * @generated
+   */
+  void setCourse_cat(String value);
 
   /**
    * Returns the value of the '<em><b>Teachers</b></em>' containment reference list.

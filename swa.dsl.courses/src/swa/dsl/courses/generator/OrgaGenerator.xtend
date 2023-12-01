@@ -10,6 +10,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import swa.dsl.courses.orga.Declaration
 import swa.dsl.courses.orga.Teacher
 import swa.dsl.courses.orga.Course
+import swa.dsl.courses.orga.Room
 
 /**
  * Generates code from your model files on save.
@@ -23,42 +24,45 @@ class OrgaGenerator extends AbstractGenerator {
 			return;
 		}
 		val declarations = resource.contents.head.eContents.filter(Declaration)
-		fsa.generateFile('index.html', '''
-			<html>
-				<head>
-					<link rel="stylesheet" type="text/css" href="style.css">
-				</head>
-				<body class="flexVStart">
-					«FOR course : declarations.filter(Course)»
-						<div class="flexHCenter">
-							<h1>«course.title»</h1>
-						</div>
-						
-						<div class="flexHSpaceAround">
-							<div class="flexVStart">
-								<div class="flexHCenter">
-									<h2>Teacher</h2>
-								</div>
-								«FOR teacher : course.teachers»
-								<div class="flexHCenter">
-									«teacher.name»
-								</div>
-								«ENDFOR»
-							</div>
-							<div class="flexVStart">
-								<div class="flexHCenter">
-									<h2>Students</h2>
-								</div>
-								«FOR student : course.students»
-									<div class="flexHCenter">
-										«student.name»
-									</div>
-								«ENDFOR»
-							</div>
-						</div>						
-					«ENDFOR»
-				</body>
-			</html>
+		fsa.generateFile('data.js', '''
+			function getCourses() {
+			    const courses = [
+			    	«FOR course : declarations.filter(Course) SEPARATOR ','»
+			    	{
+			    		department: '«course.department»',
+    		            title: '«course.title»',
+    		            type: '«course.type»',
+						«IF course.audience.equalsIgnoreCase('big')»
+						            audience: 3,
+						«ELSEIF course.audience.equalsIgnoreCase('medium')»
+						            audience: 2,
+						«ELSE»
+						            audience: 1,
+			            «ENDIF»
+    		            mapping: '«course.course_cat»'
+		            }
+			    	«ENDFOR»
+			    ]
+			        return courses;
+		    }
+		    
+		    function getRooms() {
+		        const rooms = [
+		        «FOR room : declarations.filter(Room) SEPARATOR ','»
+		        	{
+						«IF room.audience.equalsIgnoreCase('big')»
+						            audience: 3,
+						«ELSEIF room.audience.equalsIgnoreCase('medium')»
+						            audience: 2,
+						«ELSE»
+						            audience: 1,
+			            «ENDIF»
+                        location: '«room.location»'
+                    }
+		        «ENDFOR»
+		        ]
+		        return rooms;
+		    }
 		''')
 	}
 }
