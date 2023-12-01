@@ -47,8 +47,10 @@ Generierung eines Stundenplans nach foglenden Kriterien möglich:
 
 ```
 Course 'Cooking for Dummies'
-	type lecture
-	audience big
+	departmend is 'BCK'
+	type is lecture
+	audience is big
+	belongs to 'lectures'
 	teached by 
 		'Gordon Ramsay'
 	visited by 
