@@ -8,6 +8,8 @@ class Course {
         this.type = other.type;
         this.audience = other.audience;
         this.mapping = other.mapping;
+        this.teachers = other.teachers;
+        this.students = other.students;
     }
 
     copy(other) {
@@ -19,6 +21,8 @@ class Course {
         this.color = other.color;
         this.room = other.room;
         this.allocated = other.allocated;
+        this.teachers = other.teachers;
+        this.students = other.students;
     }
 
     getDBlock() {
@@ -30,7 +34,8 @@ class Course {
         const room = createNode('label', null, this.room);
         const infos = createNode('label', 'infos', type + room);
 
-        let node = '<div class="dblock" style="background: ' + this.color + '">\n';
+        let node = '<div class="dblock" style="background: ' + this.color + '" ' +
+            'onclick="togglePopup(\'' + this.title + '\',\'' + this.department + '\')">\n';
         node += separator;
         node += title;
         node += infos;
@@ -86,6 +91,9 @@ window.addEventListener("wheel", event => {
     changeDepIndex(delta);
 });
 
+
+popup = false;
+
 const startTimes = ['8:15', '10.15', '12:30', '14:15', '16.00', '17:30'];
 const endTimes = ['9:45', '11.45', '14:00', '15:45', '17.30', '19:00'];
 const headlines = ['Time', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
@@ -128,6 +136,14 @@ function allocateCoursesOfDepartment() {
     drawSite();
 }
 function initialization() {
+    timetableElement = document.getElementById('timetable');
+    popupElement = document.getElementById('popup');
+
+    popupTitleElement = document.getElementById('popup_title');
+    popupTeachersElement = document.getElementById('popup_teachers');
+    popupStudentsElement = document.getElementById('popup_students');
+
+
     departmentIndex = 0;
     department = [];
     getCourses().forEach(course => {
@@ -136,6 +152,7 @@ function initialization() {
             department.push(course.department);
         }
     });
+    console.log(allCourses);
     allCourses.sort((a, b) => {
         const audienceA = a.audience; // ignore upper and lowercase
         const audienceB = b.audience; // ignore upper and lowercase
@@ -202,6 +219,51 @@ function drawSite() {
     }
     const table = document.getElementById('table');
     table.innerHTML = tableContent;
+
+    document.getElementById('popup').style.display = 'none';
+}
+
+function togglePopup(title, dep) {
+    console.log(this.popup);
+    console.log(title, dep);
+    if (this.popup) {
+        timetableElement.style.display = 'initial';
+        popupElement.style.display = 'none';
+    } else {
+
+        this.courses.forEach(course => {
+           if (course.title === title && course.department === dep) {
+               timetableElement.style.display = 'none';
+               popupElement.style.display = 'flex';
+
+               popupTitleElement.innerText = course.title;
+               let teacherNode = '';
+               let index = 0;
+               course.teachers.forEach(t => {
+                   let str = t;
+                   if (index > 0) {
+                       let str = ', ' + t;
+                   }
+                   teacherNode += createNode('label', 'name', str);
+                   index ++;
+               });
+               popupTeachersElement.innerHTML = teacherNode;
+
+               let studentNode = '';
+               index = 0;
+               course.students.forEach(s => {
+                   let str = s;
+                   if (index > 0) {
+                       let str = ', ' + s;
+                   }
+                   studentNode += createNode('label', 'name', str);
+                   index ++;
+               });
+               popupStudentsElement.innerHTML = studentNode;
+           }
+        });
+    }
+    this.popup = !popup;
 }
 
 function allocateCoursesToRooms() {
@@ -237,14 +299,16 @@ function allocateCoursesToRooms() {
 }
 
 function changeDepIndex(mod) {
-    let newIndex = departmentIndex + mod;
-    if (newIndex < 0) {
-        newIndex = department.length -1;
-    } else if (newIndex >= department.length) {
-        newIndex = 0;
+    if (!popup) {
+        let newIndex = departmentIndex + mod;
+        if (newIndex < 0) {
+            newIndex = department.length -1;
+        } else if (newIndex >= department.length) {
+            newIndex = 0;
+        }
+        departmentIndex = newIndex;
+        allocateCoursesOfDepartment();
     }
-    departmentIndex = newIndex;
-    allocateCoursesOfDepartment();
 }
 
 function colorCourses() {

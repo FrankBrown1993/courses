@@ -39,7 +39,17 @@ class OrgaGenerator extends AbstractGenerator {
 						«ELSE»
 						            audience: 1,
 			            «ENDIF»
-    		            mapping: '«course.course_cat»'
+    		            mapping: '«course.course_cat»',
+    		            teachers: [
+    		            «FOR teacher : course.teachers SEPARATOR ','»
+    		            	'«teacher»'
+    		            «ENDFOR»
+    		            ],
+    		            students: [
+    		            «FOR student : course.students SEPARATOR ','»
+    		            	'«student»'
+    		            «ENDFOR»
+    		            ]
 		            }
 			    	«ENDFOR»
 			    ]

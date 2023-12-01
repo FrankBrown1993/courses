@@ -15,6 +15,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import swa.dsl.courses.orga.Course;
 import swa.dsl.courses.orga.Declaration;
 import swa.dsl.courses.orga.Room;
+import swa.dsl.courses.orga.Student;
+import swa.dsl.courses.orga.Teacher;
 
 /**
  * Generates code from your model files on save.
@@ -95,8 +97,52 @@ public class OrgaGenerator extends AbstractGenerator {
         _builder.append("mapping: \'");
         String _course_cat = course.getCourse_cat();
         _builder.append(_course_cat, "    \t\t            ");
-        _builder.append("\'");
+        _builder.append("\',");
         _builder.newLineIfNotEmpty();
+        _builder.append("    \t\t            ");
+        _builder.append("teachers: [");
+        _builder.newLine();
+        {
+          EList<Teacher> _teachers = course.getTeachers();
+          boolean _hasElements_1 = false;
+          for(final Teacher teacher : _teachers) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(",", "    \t\t            ");
+            }
+            _builder.append("    \t\t            ");
+            _builder.append("\'");
+            _builder.append(teacher, "    \t\t            ");
+            _builder.append("\'");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("    \t\t            ");
+        _builder.append("],");
+        _builder.newLine();
+        _builder.append("    \t\t            ");
+        _builder.append("students: [");
+        _builder.newLine();
+        {
+          EList<Student> _students = course.getStudents();
+          boolean _hasElements_2 = false;
+          for(final Student student : _students) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate(",", "    \t\t            ");
+            }
+            _builder.append("    \t\t            ");
+            _builder.append("\'");
+            _builder.append(student, "    \t\t            ");
+            _builder.append("\'");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("    \t\t            ");
+        _builder.append("]");
+        _builder.newLine();
         _builder.append("\t\t            ");
         _builder.append("}");
         _builder.newLine();
@@ -121,10 +167,10 @@ public class OrgaGenerator extends AbstractGenerator {
     _builder.newLine();
     {
       Iterable<Room> _filter_1 = Iterables.<Room>filter(declarations, Room.class);
-      boolean _hasElements_1 = false;
+      boolean _hasElements_3 = false;
       for(final Room room : _filter_1) {
-        if (!_hasElements_1) {
-          _hasElements_1 = true;
+        if (!_hasElements_3) {
+          _hasElements_3 = true;
         } else {
           _builder.appendImmediate(",", "");
         }

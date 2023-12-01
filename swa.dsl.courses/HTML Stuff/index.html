@@ -5,7 +5,8 @@
 		<script type="text/javascript" src="main.js"></script>
 	</head>
 	<body onload="initialization()">
-	<h1 id="title"></h1>
+	<div id="timetable">
+		<h1 id="title"></h1>
 		<div class="table" id="table">
 			<div class="headline">
 				<div class="tblock">Time</div>
@@ -143,5 +144,24 @@
 				<div class="block"></div>
 			</div>
 		</div>
+	</div>
+
+	<div id="popup" onclick="togglePopup('', '')">
+		<div class="hCenter">
+			<div class="box">
+				<h1 id="popup_title"></h1>
+				<h2>lecturer(s)</h2>
+				<div class="row" id="popup_teachers">
+
+				</div>
+				<h2>students</h2>
+				<div class="row" id="popup_students">
+
+				</div>
+
+			</div>
+		</div>
+		<div style="visibility: hidden">Platzhalter</div>
+	</div>
 	</body>
 </html>
