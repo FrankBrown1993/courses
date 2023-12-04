@@ -25,24 +25,27 @@ public interface Declaration extends EObject
 {
   /**
    * Returns the value of the '<em><b>Audience</b></em>' attribute.
+   * The literals are from the enumeration {@link swa.dsl.courses.orga.AudienceSize}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Audience</em>' attribute.
-   * @see #setAudience(String)
+   * @see swa.dsl.courses.orga.AudienceSize
+   * @see #setAudience(AudienceSize)
    * @see swa.dsl.courses.orga.OrgaPackage#getDeclaration_Audience()
    * @model
    * @generated
    */
-  String getAudience();
+  AudienceSize getAudience();
 
   /**
    * Sets the value of the '{@link swa.dsl.courses.orga.Declaration#getAudience <em>Audience</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Audience</em>' attribute.
+   * @see swa.dsl.courses.orga.AudienceSize
    * @see #getAudience()
    * @generated
    */
-  void setAudience(String value);
+  void setAudience(AudienceSize value);
 
 } // Declaration

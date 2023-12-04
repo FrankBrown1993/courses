@@ -8,9 +8,10 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import swa.dsl.courses.orga.Declaration
-import swa.dsl.courses.orga.Teacher
+//import swa.dsl.courses.orga.Teacher
 import swa.dsl.courses.orga.Course
 import swa.dsl.courses.orga.Room
+import swa.dsl.courses.orga.AudienceSize
 
 /**
  * Generates code from your model files on save.
@@ -29,25 +30,25 @@ class OrgaGenerator extends AbstractGenerator {
 			    const courses = [
 			    	«FOR course : declarations.filter(Course) SEPARATOR ','»
 			    	{
-			    		department: '«course.department»',
+                        major: '«course.major»',
     		            title: '«course.title»',
     		            type: '«course.type»',
-						«IF course.audience.equalsIgnoreCase('big')»
+						«IF course.audience == AudienceSize.BIG»
 						            audience: 3,
-						«ELSEIF course.audience.equalsIgnoreCase('medium')»
-						            audience: 2,
+						«ELSEIF course.audience == AudienceSize.MEDIUM»
+                                    audience: 2,
 						«ELSE»
-						            audience: 1,
+                                    audience: 1,
 			            «ENDIF»
     		            mapping: '«course.course_cat»',
     		            teachers: [
     		            «FOR teacher : course.teachers SEPARATOR ','»
-    		            	'«teacher»'
+    		            	'«teacher.name»'
     		            «ENDFOR»
     		            ],
     		            students: [
     		            «FOR student : course.students SEPARATOR ','»
-    		            	'«student»'
+    		            	'«student.name»'
     		            «ENDFOR»
     		            ]
 		            }
@@ -60,12 +61,12 @@ class OrgaGenerator extends AbstractGenerator {
 		        const rooms = [
 		        «FOR room : declarations.filter(Room) SEPARATOR ','»
 		        	{
-						«IF room.audience.equalsIgnoreCase('big')»
-						            audience: 3,
-						«ELSEIF room.audience.equalsIgnoreCase('medium')»
-						            audience: 2,
+						«IF room.audience == AudienceSize.BIG»
+                                    audience: 3,
+						«ELSEIF room.audience == AudienceSize.MEDIUM»
+                                    audience: 2,
 						«ELSE»
-						            audience: 1,
+                                    audience: 1,
 			            «ENDIF»
                         location: '«room.location»'
                     }

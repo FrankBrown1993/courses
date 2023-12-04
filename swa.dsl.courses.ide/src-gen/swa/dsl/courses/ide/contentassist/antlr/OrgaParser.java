@@ -31,13 +31,22 @@ public class OrgaParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, OrgaGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
+			builder.put(grammarAccess.getAudienceSizeAccess().getAlternatives(), "rule__AudienceSize__Alternatives");
 			builder.put(grammarAccess.getCourseAccess().getGroup(), "rule__Course__Group__0");
+			builder.put(grammarAccess.getRoomAccess().getGroup(), "rule__Room__Group__0");
 			builder.put(grammarAccess.getModelAccess().getDeclarationsAssignment(), "rule__Model__DeclarationsAssignment");
 			builder.put(grammarAccess.getCourseAccess().getTitleAssignment_1(), "rule__Course__TitleAssignment_1");
-			builder.put(grammarAccess.getCourseAccess().getTeachersAssignment_4(), "rule__Course__TeachersAssignment_4");
-			builder.put(grammarAccess.getCourseAccess().getStudentsAssignment_7(), "rule__Course__StudentsAssignment_7");
+			builder.put(grammarAccess.getCourseAccess().getMajorAssignment_3(), "rule__Course__MajorAssignment_3");
+			builder.put(grammarAccess.getCourseAccess().getTypeAssignment_6(), "rule__Course__TypeAssignment_6");
+			builder.put(grammarAccess.getCourseAccess().getAudienceAssignment_9(), "rule__Course__AudienceAssignment_9");
+			builder.put(grammarAccess.getCourseAccess().getCourse_catAssignment_12(), "rule__Course__Course_catAssignment_12");
+			builder.put(grammarAccess.getCourseAccess().getTeachersAssignment_15(), "rule__Course__TeachersAssignment_15");
+			builder.put(grammarAccess.getCourseAccess().getStudentsAssignment_18(), "rule__Course__StudentsAssignment_18");
 			builder.put(grammarAccess.getTeacherAccess().getNameAssignment(), "rule__Teacher__NameAssignment");
 			builder.put(grammarAccess.getStudentAccess().getNameAssignment(), "rule__Student__NameAssignment");
+			builder.put(grammarAccess.getRoomAccess().getLocationAssignment_1(), "rule__Room__LocationAssignment_1");
+			builder.put(grammarAccess.getRoomAccess().getAudienceAssignment_3(), "rule__Room__AudienceAssignment_3");
 		}
 	}
 	

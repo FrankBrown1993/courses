@@ -8,6 +8,8 @@ import com.google.inject.Singleton;
 import java.util.List;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -64,52 +66,51 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final Keyword cCourseKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cTitleAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTitleSTRINGTerminalRuleCall_1_0 = (RuleCall)cTitleAssignment_1.eContents().get(0);
-		private final Keyword cDepartmentKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cIsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cDepartmentAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDepartmentSTRINGTerminalRuleCall_4_0 = (RuleCall)cDepartmentAssignment_4.eContents().get(0);
-		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cIsKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cTypeSTRINGTerminalRuleCall_7_0 = (RuleCall)cTypeAssignment_7.eContents().get(0);
-		private final Keyword cAudienceKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cIsKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cAudienceAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cAudienceIDTerminalRuleCall_10_0 = (RuleCall)cAudienceAssignment_10.eContents().get(0);
-		private final Keyword cCourseKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Keyword cCategoryKeyword_12 = (Keyword)cGroup.eContents().get(12);
-		private final Assignment cCourse_catAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cCourse_catSTRINGTerminalRuleCall_13_0 = (RuleCall)cCourse_catAssignment_13.eContents().get(0);
-		private final Keyword cTeachedKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cByKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Assignment cTeachersAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cTeachersTeacherParserRuleCall_16_0 = (RuleCall)cTeachersAssignment_16.eContents().get(0);
-		private final Keyword cVisitedKeyword_17 = (Keyword)cGroup.eContents().get(17);
-		private final Keyword cByKeyword_18 = (Keyword)cGroup.eContents().get(18);
-		private final Assignment cStudentsAssignment_19 = (Assignment)cGroup.eContents().get(19);
-		private final RuleCall cStudentsStudentParserRuleCall_19_0 = (RuleCall)cStudentsAssignment_19.eContents().get(0);
+		private final Keyword cMajorKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMajorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMajorSTRINGTerminalRuleCall_3_0 = (RuleCall)cMajorAssignment_3.eContents().get(0);
+		private final Keyword cTypeKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cIsKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cTypeSTRINGTerminalRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
+		private final Keyword cAudienceKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cIsKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cAudienceAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cAudienceAudienceSizeEnumRuleCall_9_0 = (RuleCall)cAudienceAssignment_9.eContents().get(0);
+		private final Keyword cCourseKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cCategoryKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cCourse_catAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cCourse_catSTRINGTerminalRuleCall_12_0 = (RuleCall)cCourse_catAssignment_12.eContents().get(0);
+		private final Keyword cTaughtKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cByKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Assignment cTeachersAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cTeachersTeacherParserRuleCall_15_0 = (RuleCall)cTeachersAssignment_15.eContents().get(0);
+		private final Keyword cVisitedKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final Keyword cByKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Assignment cStudentsAssignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final RuleCall cStudentsStudentParserRuleCall_18_0 = (RuleCall)cStudentsAssignment_18.eContents().get(0);
 		
 		//Course:
 		//    'Course' title=STRING
-		//    'department' 'is' department=STRING
+		//    'major' major=STRING
 		//    'type' 'is' type=STRING
-		//    'audience' 'is' audience=ID
+		//    'audience' 'is' audience=AudienceSize
 		//    'course' 'category' course_cat=STRING
-		//    'teached' 'by'
+		//    'taught' 'by'
 		//        (teachers+=Teacher)+
 		//    'visited' 'by'
-		//        (students+=Student)+;
+		//        (students+=Student)*;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Course' title=STRING
-		//'department' 'is' department=STRING
+		//'major' major=STRING
 		//'type' 'is' type=STRING
-		//'audience' 'is' audience=ID
+		//'audience' 'is' audience=AudienceSize
 		//'course' 'category' course_cat=STRING
-		//'teached' 'by'
+		//'taught' 'by'
 		//    (teachers+=Teacher)+
 		//'visited' 'by'
-		//    (students+=Student)+
+		//    (students+=Student)*
 		public Group getGroup() { return cGroup; }
 		
 		//'Course'
@@ -121,77 +122,74 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//STRING
 		public RuleCall getTitleSTRINGTerminalRuleCall_1_0() { return cTitleSTRINGTerminalRuleCall_1_0; }
 		
-		//'department'
-		public Keyword getDepartmentKeyword_2() { return cDepartmentKeyword_2; }
+		//'major'
+		public Keyword getMajorKeyword_2() { return cMajorKeyword_2; }
 		
-		//'is'
-		public Keyword getIsKeyword_3() { return cIsKeyword_3; }
-		
-		//department=STRING
-		public Assignment getDepartmentAssignment_4() { return cDepartmentAssignment_4; }
+		//major=STRING
+		public Assignment getMajorAssignment_3() { return cMajorAssignment_3; }
 		
 		//STRING
-		public RuleCall getDepartmentSTRINGTerminalRuleCall_4_0() { return cDepartmentSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getMajorSTRINGTerminalRuleCall_3_0() { return cMajorSTRINGTerminalRuleCall_3_0; }
 		
 		//'type'
-		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
+		public Keyword getTypeKeyword_4() { return cTypeKeyword_4; }
 		
 		//'is'
-		public Keyword getIsKeyword_6() { return cIsKeyword_6; }
+		public Keyword getIsKeyword_5() { return cIsKeyword_5; }
 		
 		//type=STRING
-		public Assignment getTypeAssignment_7() { return cTypeAssignment_7; }
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 		
 		//STRING
-		public RuleCall getTypeSTRINGTerminalRuleCall_7_0() { return cTypeSTRINGTerminalRuleCall_7_0; }
+		public RuleCall getTypeSTRINGTerminalRuleCall_6_0() { return cTypeSTRINGTerminalRuleCall_6_0; }
 		
 		//'audience'
-		public Keyword getAudienceKeyword_8() { return cAudienceKeyword_8; }
+		public Keyword getAudienceKeyword_7() { return cAudienceKeyword_7; }
 		
 		//'is'
-		public Keyword getIsKeyword_9() { return cIsKeyword_9; }
+		public Keyword getIsKeyword_8() { return cIsKeyword_8; }
 		
-		//audience=ID
-		public Assignment getAudienceAssignment_10() { return cAudienceAssignment_10; }
+		//audience=AudienceSize
+		public Assignment getAudienceAssignment_9() { return cAudienceAssignment_9; }
 		
-		//ID
-		public RuleCall getAudienceIDTerminalRuleCall_10_0() { return cAudienceIDTerminalRuleCall_10_0; }
+		//AudienceSize
+		public RuleCall getAudienceAudienceSizeEnumRuleCall_9_0() { return cAudienceAudienceSizeEnumRuleCall_9_0; }
 		
 		//'course'
-		public Keyword getCourseKeyword_11() { return cCourseKeyword_11; }
+		public Keyword getCourseKeyword_10() { return cCourseKeyword_10; }
 		
 		//'category'
-		public Keyword getCategoryKeyword_12() { return cCategoryKeyword_12; }
+		public Keyword getCategoryKeyword_11() { return cCategoryKeyword_11; }
 		
 		//course_cat=STRING
-		public Assignment getCourse_catAssignment_13() { return cCourse_catAssignment_13; }
+		public Assignment getCourse_catAssignment_12() { return cCourse_catAssignment_12; }
 		
 		//STRING
-		public RuleCall getCourse_catSTRINGTerminalRuleCall_13_0() { return cCourse_catSTRINGTerminalRuleCall_13_0; }
+		public RuleCall getCourse_catSTRINGTerminalRuleCall_12_0() { return cCourse_catSTRINGTerminalRuleCall_12_0; }
 		
-		//'teached'
-		public Keyword getTeachedKeyword_14() { return cTeachedKeyword_14; }
+		//'taught'
+		public Keyword getTaughtKeyword_13() { return cTaughtKeyword_13; }
 		
 		//'by'
-		public Keyword getByKeyword_15() { return cByKeyword_15; }
+		public Keyword getByKeyword_14() { return cByKeyword_14; }
 		
 		//(teachers+=Teacher)+
-		public Assignment getTeachersAssignment_16() { return cTeachersAssignment_16; }
+		public Assignment getTeachersAssignment_15() { return cTeachersAssignment_15; }
 		
 		//Teacher
-		public RuleCall getTeachersTeacherParserRuleCall_16_0() { return cTeachersTeacherParserRuleCall_16_0; }
+		public RuleCall getTeachersTeacherParserRuleCall_15_0() { return cTeachersTeacherParserRuleCall_15_0; }
 		
 		//'visited'
-		public Keyword getVisitedKeyword_17() { return cVisitedKeyword_17; }
+		public Keyword getVisitedKeyword_16() { return cVisitedKeyword_16; }
 		
 		//'by'
-		public Keyword getByKeyword_18() { return cByKeyword_18; }
+		public Keyword getByKeyword_17() { return cByKeyword_17; }
 		
-		//(students+=Student)+
-		public Assignment getStudentsAssignment_19() { return cStudentsAssignment_19; }
+		//(students+=Student)*
+		public Assignment getStudentsAssignment_18() { return cStudentsAssignment_18; }
 		
 		//Student
-		public RuleCall getStudentsStudentParserRuleCall_19_0() { return cStudentsStudentParserRuleCall_19_0; }
+		public RuleCall getStudentsStudentParserRuleCall_18_0() { return cStudentsStudentParserRuleCall_18_0; }
 	}
 	public class TeacherElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "swa.dsl.courses.Orga.Teacher");
@@ -231,14 +229,14 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		private final RuleCall cLocationSTRINGTerminalRuleCall_1_0 = (RuleCall)cLocationAssignment_1.eContents().get(0);
 		private final Keyword cIsKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cAudienceAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAudienceIDTerminalRuleCall_3_0 = (RuleCall)cAudienceAssignment_3.eContents().get(0);
+		private final RuleCall cAudienceAudienceSizeEnumRuleCall_3_0 = (RuleCall)cAudienceAssignment_3.eContents().get(0);
 		
 		//Room:
-		//    'Room' location=STRING 'is' audience=ID
+		//    'Room' location=STRING 'is' audience=AudienceSize
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Room' location=STRING 'is' audience=ID
+		//'Room' location=STRING 'is' audience=AudienceSize
 		public Group getGroup() { return cGroup; }
 		
 		//'Room'
@@ -253,13 +251,49 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		//'is'
 		public Keyword getIsKeyword_2() { return cIsKeyword_2; }
 		
-		//audience=ID
+		//audience=AudienceSize
 		public Assignment getAudienceAssignment_3() { return cAudienceAssignment_3; }
 		
-		//ID
-		public RuleCall getAudienceIDTerminalRuleCall_3_0() { return cAudienceIDTerminalRuleCall_3_0; }
+		//AudienceSize
+		public RuleCall getAudienceAudienceSizeEnumRuleCall_3_0() { return cAudienceAudienceSizeEnumRuleCall_3_0; }
 	}
 	
+	public class AudienceSizeElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "swa.dsl.courses.Orga.AudienceSize");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSMALLEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSMALLSmallKeyword_0_0 = (Keyword)cSMALLEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cMEDIUMEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cMEDIUMMediumKeyword_1_0 = (Keyword)cMEDIUMEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cBIGEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cBIGBigKeyword_2_0 = (Keyword)cBIGEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum AudienceSize:
+		//    SMALL = 'small'| MEDIUM = 'medium' | BIG = 'big'
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//SMALL = 'small'| MEDIUM = 'medium' | BIG = 'big'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//SMALL = 'small'
+		public EnumLiteralDeclaration getSMALLEnumLiteralDeclaration_0() { return cSMALLEnumLiteralDeclaration_0; }
+		
+		//'small'
+		public Keyword getSMALLSmallKeyword_0_0() { return cSMALLSmallKeyword_0_0; }
+		
+		//MEDIUM = 'medium'
+		public EnumLiteralDeclaration getMEDIUMEnumLiteralDeclaration_1() { return cMEDIUMEnumLiteralDeclaration_1; }
+		
+		//'medium'
+		public Keyword getMEDIUMMediumKeyword_1_0() { return cMEDIUMMediumKeyword_1_0; }
+		
+		//BIG = 'big'
+		public EnumLiteralDeclaration getBIGEnumLiteralDeclaration_2() { return cBIGEnumLiteralDeclaration_2; }
+		
+		//'big'
+		public Keyword getBIGBigKeyword_2_0() { return cBIGBigKeyword_2_0; }
+	}
 	
 	private final ModelElements pModel;
 	private final DeclarationElements pDeclaration;
@@ -267,6 +301,7 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	private final TeacherElements pTeacher;
 	private final StudentElements pStudent;
 	private final RoomElements pRoom;
+	private final AudienceSizeElements eAudienceSize;
 	
 	private final Grammar grammar;
 	
@@ -283,6 +318,7 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 		this.pTeacher = new TeacherElements();
 		this.pStudent = new StudentElements();
 		this.pRoom = new RoomElements();
+		this.eAudienceSize = new AudienceSizeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -336,14 +372,14 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	//Course:
 	//    'Course' title=STRING
-	//    'department' 'is' department=STRING
+	//    'major' major=STRING
 	//    'type' 'is' type=STRING
-	//    'audience' 'is' audience=ID
+	//    'audience' 'is' audience=AudienceSize
 	//    'course' 'category' course_cat=STRING
-	//    'teached' 'by'
+	//    'taught' 'by'
 	//        (teachers+=Teacher)+
 	//    'visited' 'by'
-	//        (students+=Student)+;
+	//        (students+=Student)*;
 	public CourseElements getCourseAccess() {
 		return pCourse;
 	}
@@ -373,7 +409,7 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	}
 	
 	//Room:
-	//    'Room' location=STRING 'is' audience=ID
+	//    'Room' location=STRING 'is' audience=AudienceSize
 	//;
 	public RoomElements getRoomAccess() {
 		return pRoom;
@@ -381,6 +417,17 @@ public class OrgaGrammarAccess extends AbstractElementFinder.AbstractGrammarElem
 	
 	public ParserRule getRoomRule() {
 		return getRoomAccess().getRule();
+	}
+	
+	//enum AudienceSize:
+	//    SMALL = 'small'| MEDIUM = 'medium' | BIG = 'big'
+	//;
+	public AudienceSizeElements getAudienceSizeAccess() {
+		return eAudienceSize;
+	}
+	
+	public EnumRule getAudienceSizeRule() {
+		return getAudienceSizeAccess().getRule();
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

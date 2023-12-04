@@ -5,11 +5,13 @@ package swa.dsl.courses.orga.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import swa.dsl.courses.orga.AudienceSize;
 import swa.dsl.courses.orga.Course;
 import swa.dsl.courses.orga.Declaration;
 import swa.dsl.courses.orga.Model;
@@ -68,6 +70,13 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   private EClass roomEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum audienceSizeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -203,7 +212,7 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   @Override
-  public EAttribute getCourse_Department()
+  public EAttribute getCourse_Major()
   {
     return (EAttribute)courseEClass.getEStructuralFeatures().get(1);
   }
@@ -324,6 +333,17 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
    * @generated
    */
   @Override
+  public EEnum getAudienceSize()
+  {
+    return audienceSizeEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public OrgaFactory getOrgaFactory()
   {
     return (OrgaFactory)getEFactoryInstance();
@@ -357,7 +377,7 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
 
     courseEClass = createEClass(COURSE);
     createEAttribute(courseEClass, COURSE__TITLE);
-    createEAttribute(courseEClass, COURSE__DEPARTMENT);
+    createEAttribute(courseEClass, COURSE__MAJOR);
     createEAttribute(courseEClass, COURSE__TYPE);
     createEAttribute(courseEClass, COURSE__COURSE_CAT);
     createEReference(courseEClass, COURSE__TEACHERS);
@@ -371,6 +391,9 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
 
     roomEClass = createEClass(ROOM);
     createEAttribute(roomEClass, ROOM__LOCATION);
+
+    // Create enums
+    audienceSizeEEnum = createEEnum(AUDIENCE_SIZE);
   }
 
   /**
@@ -410,11 +433,11 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
     initEReference(getModel_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDeclaration_Audience(), ecorePackage.getEString(), "audience", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeclaration_Audience(), this.getAudienceSize(), "audience", null, 0, 1, Declaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(courseEClass, Course.class, "Course", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCourse_Title(), ecorePackage.getEString(), "title", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCourse_Department(), ecorePackage.getEString(), "department", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCourse_Major(), ecorePackage.getEString(), "major", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCourse_Type(), ecorePackage.getEString(), "type", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCourse_Course_cat(), ecorePackage.getEString(), "course_cat", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCourse_Teachers(), this.getTeacher(), null, "teachers", null, 0, -1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -428,6 +451,12 @@ public class OrgaPackageImpl extends EPackageImpl implements OrgaPackage
 
     initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoom_Location(), ecorePackage.getEString(), "location", null, 0, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(audienceSizeEEnum, AudienceSize.class, "AudienceSize");
+    addEEnumLiteral(audienceSizeEEnum, AudienceSize.SMALL);
+    addEEnumLiteral(audienceSizeEEnum, AudienceSize.MEDIUM);
+    addEEnumLiteral(audienceSizeEEnum, AudienceSize.BIG);
 
     // Create resource
     createResource(eNS_URI);

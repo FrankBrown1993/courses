@@ -6,6 +6,11 @@
     copyrightFields="false" runtimeVersion="2.29">
   <genPackages prefix="Orga" basePackage="swa.dsl.courses" disposableProviderFactory="true"
       fileExtensions="orga" ecorePackage="Orga.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Orga.ecore#//AudienceSize">
+      <genEnumLiterals ecoreEnumLiteral="Orga.ecore#//AudienceSize/SMALL"/>
+      <genEnumLiterals ecoreEnumLiteral="Orga.ecore#//AudienceSize/MEDIUM"/>
+      <genEnumLiterals ecoreEnumLiteral="Orga.ecore#//AudienceSize/BIG"/>
+    </genEnums>
     <genClasses ecoreClass="Orga.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Orga.ecore#//Model/declarations"/>
     </genClasses>
@@ -14,7 +19,7 @@
     </genClasses>
     <genClasses ecoreClass="Orga.ecore#//Course">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/department"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/major"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Orga.ecore#//Course/course_cat"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Orga.ecore#//Course/teachers"/>

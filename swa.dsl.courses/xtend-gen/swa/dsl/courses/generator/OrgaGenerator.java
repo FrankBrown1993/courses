@@ -3,6 +3,7 @@
  */
 package swa.dsl.courses.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -12,6 +13,7 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import swa.dsl.courses.orga.AudienceSize;
 import swa.dsl.courses.orga.Course;
 import swa.dsl.courses.orga.Declaration;
 import swa.dsl.courses.orga.Room;
@@ -55,11 +57,10 @@ public class OrgaGenerator extends AbstractGenerator {
         _builder.append("    \t");
         _builder.append("{");
         _builder.newLine();
-        _builder.append("    \t");
-        _builder.append("\t");
-        _builder.append("department: \'");
-        String _department = course.getDepartment();
-        _builder.append(_department, "    \t\t");
+        _builder.append("                        ");
+        _builder.append("major: \'");
+        String _major = course.getMajor();
+        _builder.append(_major, "                        ");
         _builder.append("\',");
         _builder.newLineIfNotEmpty();
         _builder.append("    \t\t            ");
@@ -75,19 +76,19 @@ public class OrgaGenerator extends AbstractGenerator {
         _builder.append("\',");
         _builder.newLineIfNotEmpty();
         {
-          boolean _equalsIgnoreCase = course.getAudience().equalsIgnoreCase("big");
-          if (_equalsIgnoreCase) {
+          AudienceSize _audience = course.getAudience();
+          boolean _equals = Objects.equal(_audience, AudienceSize.BIG);
+          if (_equals) {
             _builder.append("\t\t\t\t\t\t");
             _builder.append("audience: 3,");
             _builder.newLine();
           } else {
-            boolean _equalsIgnoreCase_1 = course.getAudience().equalsIgnoreCase("medium");
-            if (_equalsIgnoreCase_1) {
-              _builder.append("\t\t\t\t\t\t");
+            AudienceSize _audience_1 = course.getAudience();
+            boolean _equals_1 = Objects.equal(_audience_1, AudienceSize.MEDIUM);
+            if (_equals_1) {
               _builder.append("audience: 2,");
               _builder.newLine();
             } else {
-              _builder.append("\t\t\t\t\t\t");
               _builder.append("audience: 1,");
               _builder.newLine();
             }
@@ -113,7 +114,8 @@ public class OrgaGenerator extends AbstractGenerator {
             }
             _builder.append("    \t\t            ");
             _builder.append("\'");
-            _builder.append(teacher, "    \t\t            ");
+            String _name = teacher.getName();
+            _builder.append(_name, "    \t\t            ");
             _builder.append("\'");
             _builder.newLineIfNotEmpty();
           }
@@ -135,7 +137,8 @@ public class OrgaGenerator extends AbstractGenerator {
             }
             _builder.append("    \t\t            ");
             _builder.append("\'");
-            _builder.append(student, "    \t\t            ");
+            String _name_1 = student.getName();
+            _builder.append(_name_1, "    \t\t            ");
             _builder.append("\'");
             _builder.newLineIfNotEmpty();
           }
@@ -178,13 +181,15 @@ public class OrgaGenerator extends AbstractGenerator {
         _builder.append("{");
         _builder.newLine();
         {
-          boolean _equalsIgnoreCase_2 = room.getAudience().equalsIgnoreCase("big");
-          if (_equalsIgnoreCase_2) {
+          AudienceSize _audience_2 = room.getAudience();
+          boolean _equals_2 = Objects.equal(_audience_2, AudienceSize.BIG);
+          if (_equals_2) {
             _builder.append("audience: 3,");
             _builder.newLine();
           } else {
-            boolean _equalsIgnoreCase_3 = room.getAudience().equalsIgnoreCase("medium");
-            if (_equalsIgnoreCase_3) {
+            AudienceSize _audience_3 = room.getAudience();
+            boolean _equals_3 = Objects.equal(_audience_3, AudienceSize.MEDIUM);
+            if (_equals_3) {
               _builder.append("audience: 2,");
               _builder.newLine();
             } else {

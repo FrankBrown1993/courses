@@ -65,12 +65,12 @@ public class OrgaSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         title=STRING 
-	 *         department=STRING 
+	 *         major=STRING 
 	 *         type=STRING 
-	 *         audience=ID 
+	 *         audience=AudienceSize 
 	 *         course_cat=STRING 
 	 *         teachers+=Teacher+ 
-	 *         students+=Student+
+	 *         students+=Student*
 	 *     )
 	 * </pre>
 	 */
@@ -100,7 +100,7 @@ public class OrgaSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Room returns Room
 	 *
 	 * Constraint:
-	 *     (location=STRING audience=ID)
+	 *     (location=STRING audience=AudienceSize)
 	 * </pre>
 	 */
 	protected void sequence_Room(ISerializationContext context, Room semanticObject) {
@@ -112,7 +112,7 @@ public class OrgaSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRoomAccess().getLocationSTRINGTerminalRuleCall_1_0(), semanticObject.getLocation());
-		feeder.accept(grammarAccess.getRoomAccess().getAudienceIDTerminalRuleCall_3_0(), semanticObject.getAudience());
+		feeder.accept(grammarAccess.getRoomAccess().getAudienceAudienceSizeEnumRuleCall_3_0(), semanticObject.getAudience());
 		feeder.finish();
 	}
 	

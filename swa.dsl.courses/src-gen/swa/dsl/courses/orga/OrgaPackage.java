@@ -5,6 +5,7 @@ package swa.dsl.courses.orga;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -142,13 +143,13 @@ public interface OrgaPackage extends EPackage
   int COURSE__TITLE = DECLARATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Department</b></em>' attribute.
+   * The feature id for the '<em><b>Major</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COURSE__DEPARTMENT = DECLARATION_FEATURE_COUNT + 1;
+  int COURSE__MAJOR = DECLARATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -288,6 +289,16 @@ public interface OrgaPackage extends EPackage
    */
   int ROOM_FEATURE_COUNT = DECLARATION_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link swa.dsl.courses.orga.AudienceSize <em>Audience Size</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see swa.dsl.courses.orga.AudienceSize
+   * @see swa.dsl.courses.orga.impl.OrgaPackageImpl#getAudienceSize()
+   * @generated
+   */
+  int AUDIENCE_SIZE = 6;
+
 
   /**
    * Returns the meta object for class '{@link swa.dsl.courses.orga.Model <em>Model</em>}'.
@@ -353,15 +364,15 @@ public interface OrgaPackage extends EPackage
   EAttribute getCourse_Title();
 
   /**
-   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Course#getDepartment <em>Department</em>}'.
+   * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Course#getMajor <em>Major</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Department</em>'.
-   * @see swa.dsl.courses.orga.Course#getDepartment()
+   * @return the meta object for the attribute '<em>Major</em>'.
+   * @see swa.dsl.courses.orga.Course#getMajor()
    * @see #getCourse()
    * @generated
    */
-  EAttribute getCourse_Department();
+  EAttribute getCourse_Major();
 
   /**
    * Returns the meta object for the attribute '{@link swa.dsl.courses.orga.Course#getType <em>Type</em>}'.
@@ -471,6 +482,16 @@ public interface OrgaPackage extends EPackage
   EAttribute getRoom_Location();
 
   /**
+   * Returns the meta object for enum '{@link swa.dsl.courses.orga.AudienceSize <em>Audience Size</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Audience Size</em>'.
+   * @see swa.dsl.courses.orga.AudienceSize
+   * @generated
+   */
+  EEnum getAudienceSize();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -548,12 +569,12 @@ public interface OrgaPackage extends EPackage
     EAttribute COURSE__TITLE = eINSTANCE.getCourse_Title();
 
     /**
-     * The meta object literal for the '<em><b>Department</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Major</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COURSE__DEPARTMENT = eINSTANCE.getCourse_Department();
+    EAttribute COURSE__MAJOR = eINSTANCE.getCourse_Major();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -640,6 +661,16 @@ public interface OrgaPackage extends EPackage
      * @generated
      */
     EAttribute ROOM__LOCATION = eINSTANCE.getRoom_Location();
+
+    /**
+     * The meta object literal for the '{@link swa.dsl.courses.orga.AudienceSize <em>Audience Size</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see swa.dsl.courses.orga.AudienceSize
+     * @see swa.dsl.courses.orga.impl.OrgaPackageImpl#getAudienceSize()
+     * @generated
+     */
+    EEnum AUDIENCE_SIZE = eINSTANCE.getAudienceSize();
 
   }
 

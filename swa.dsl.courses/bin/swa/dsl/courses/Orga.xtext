@@ -12,14 +12,14 @@ Declaration :
 
 Course:
     'Course' title=STRING
-    'department' 'is' department=STRING
+    'major' major=STRING
     'type' 'is' type=STRING 
-    'audience' 'is' audience=ID
+    'audience' 'is' audience=AudienceSize
     'course' 'category' course_cat=STRING
-    'teached' 'by'
+    'taught' 'by'
     	(teachers+=Teacher)+
     'visited' 'by'
-    	(students+=Student)+;
+    	(students+=Student)*;
 
 Teacher:
     name=STRING;
@@ -28,5 +28,9 @@ Student:
     name=STRING;
     
 Room:
-	'Room' location=STRING 'is' audience=ID
+	'Room' location=STRING 'is' audience=AudienceSize
+;
+
+enum AudienceSize:
+	SMALL = 'small'| MEDIUM = 'medium' | BIG = 'big'
 ;

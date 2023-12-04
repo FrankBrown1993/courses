@@ -32,7 +32,7 @@ import swa.dsl.courses.orga.Teacher;
  * </p>
  * <ul>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getDepartment <em>Department</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getMajor <em>Major</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getType <em>Type</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getCourse_cat <em>Course cat</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.impl.CourseImpl#getTeachers <em>Teachers</em>}</li>
@@ -64,24 +64,24 @@ public class CourseImpl extends DeclarationImpl implements Course
   protected String title = TITLE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDepartment() <em>Department</em>}' attribute.
+   * The default value of the '{@link #getMajor() <em>Major</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDepartment()
+   * @see #getMajor()
    * @generated
    * @ordered
    */
-  protected static final String DEPARTMENT_EDEFAULT = null;
+  protected static final String MAJOR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDepartment() <em>Department</em>}' attribute.
+   * The cached value of the '{@link #getMajor() <em>Major</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDepartment()
+   * @see #getMajor()
    * @generated
    * @ordered
    */
-  protected String department = DEPARTMENT_EDEFAULT;
+  protected String major = MAJOR_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -195,9 +195,9 @@ public class CourseImpl extends DeclarationImpl implements Course
    * @generated
    */
   @Override
-  public String getDepartment()
+  public String getMajor()
   {
-    return department;
+    return major;
   }
 
   /**
@@ -206,12 +206,12 @@ public class CourseImpl extends DeclarationImpl implements Course
    * @generated
    */
   @Override
-  public void setDepartment(String newDepartment)
+  public void setMajor(String newMajor)
   {
-    String oldDepartment = department;
-    department = newDepartment;
+    String oldMajor = major;
+    major = newMajor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.COURSE__DEPARTMENT, oldDepartment, department));
+      eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.COURSE__MAJOR, oldMajor, major));
   }
 
   /**
@@ -324,8 +324,8 @@ public class CourseImpl extends DeclarationImpl implements Course
     {
       case OrgaPackage.COURSE__TITLE:
         return getTitle();
-      case OrgaPackage.COURSE__DEPARTMENT:
-        return getDepartment();
+      case OrgaPackage.COURSE__MAJOR:
+        return getMajor();
       case OrgaPackage.COURSE__TYPE:
         return getType();
       case OrgaPackage.COURSE__COURSE_CAT:
@@ -352,8 +352,8 @@ public class CourseImpl extends DeclarationImpl implements Course
       case OrgaPackage.COURSE__TITLE:
         setTitle((String)newValue);
         return;
-      case OrgaPackage.COURSE__DEPARTMENT:
-        setDepartment((String)newValue);
+      case OrgaPackage.COURSE__MAJOR:
+        setMajor((String)newValue);
         return;
       case OrgaPackage.COURSE__TYPE:
         setType((String)newValue);
@@ -386,8 +386,8 @@ public class CourseImpl extends DeclarationImpl implements Course
       case OrgaPackage.COURSE__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
-      case OrgaPackage.COURSE__DEPARTMENT:
-        setDepartment(DEPARTMENT_EDEFAULT);
+      case OrgaPackage.COURSE__MAJOR:
+        setMajor(MAJOR_EDEFAULT);
         return;
       case OrgaPackage.COURSE__TYPE:
         setType(TYPE_EDEFAULT);
@@ -417,8 +417,8 @@ public class CourseImpl extends DeclarationImpl implements Course
     {
       case OrgaPackage.COURSE__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-      case OrgaPackage.COURSE__DEPARTMENT:
-        return DEPARTMENT_EDEFAULT == null ? department != null : !DEPARTMENT_EDEFAULT.equals(department);
+      case OrgaPackage.COURSE__MAJOR:
+        return MAJOR_EDEFAULT == null ? major != null : !MAJOR_EDEFAULT.equals(major);
       case OrgaPackage.COURSE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case OrgaPackage.COURSE__COURSE_CAT:
@@ -444,8 +444,8 @@ public class CourseImpl extends DeclarationImpl implements Course
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (title: ");
     result.append(title);
-    result.append(", department: ");
-    result.append(department);
+    result.append(", major: ");
+    result.append(major);
     result.append(", type: ");
     result.append(type);
     result.append(", course_cat: ");

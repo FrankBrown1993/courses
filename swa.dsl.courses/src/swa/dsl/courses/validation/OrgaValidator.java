@@ -3,6 +3,11 @@
  */
 package swa.dsl.courses.validation;
 
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckType;
+
+import swa.dsl.courses.orga.Course;
+import swa.dsl.courses.orga.Room;
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +16,29 @@ package swa.dsl.courses.validation;
  */
 public class OrgaValidator extends AbstractOrgaValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					OrgaPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
+	@Check(CheckType.FAST)
+	public void checkRoomLocationSatisfies2PartStructure(Room room) {
+		final String[] parts = room.getLocation().split("\\.");
+		if(parts.length != 2) {
+			warning("Room location should consist of two parts, not " + parts.length + ". (E.g. 1H.001)", null);
+		}
+	}
+	
+	@Check(CheckType.FAST)
+	public void checkMajorUsesAbbreviation(Course course) {
+		if(course.getMajor().length() > 3) {
+			warning("Majors should be reffered to by their abbreviations.", null);
+		}
+	}
+	
+	@Check(CheckType.FAST)
+	public void checkMajorOnlyUpperCase(Course course) {
+		for(int i = 0; i < course.getMajor().length(); i++) {
+			if(!Character.isUpperCase(course.getMajor().charAt(i))) {
+				warning("Majors should be all uppercase", null);
+			}
+		}
+	}
+	
 	
 }

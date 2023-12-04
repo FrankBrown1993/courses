@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import swa.dsl.courses.orga.AudienceSize;
 import swa.dsl.courses.orga.Declaration;
 import swa.dsl.courses.orga.OrgaPackage;
 
@@ -36,7 +37,7 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @generated
    * @ordered
    */
-  protected static final String AUDIENCE_EDEFAULT = null;
+  protected static final AudienceSize AUDIENCE_EDEFAULT = AudienceSize.SMALL;
 
   /**
    * The cached value of the '{@link #getAudience() <em>Audience</em>}' attribute.
@@ -46,7 +47,7 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @generated
    * @ordered
    */
-  protected String audience = AUDIENCE_EDEFAULT;
+  protected AudienceSize audience = AUDIENCE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,7 +76,7 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @generated
    */
   @Override
-  public String getAudience()
+  public AudienceSize getAudience()
   {
     return audience;
   }
@@ -86,10 +87,10 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
    * @generated
    */
   @Override
-  public void setAudience(String newAudience)
+  public void setAudience(AudienceSize newAudience)
   {
-    String oldAudience = audience;
-    audience = newAudience;
+    AudienceSize oldAudience = audience;
+    audience = newAudience == null ? AUDIENCE_EDEFAULT : newAudience;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, OrgaPackage.DECLARATION__AUDIENCE, oldAudience, audience));
   }
@@ -121,7 +122,7 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
     switch (featureID)
     {
       case OrgaPackage.DECLARATION__AUDIENCE:
-        setAudience((String)newValue);
+        setAudience((AudienceSize)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -155,7 +156,7 @@ public class DeclarationImpl extends MinimalEObjectImpl.Container implements Dec
     switch (featureID)
     {
       case OrgaPackage.DECLARATION__AUDIENCE:
-        return AUDIENCE_EDEFAULT == null ? audience != null : !AUDIENCE_EDEFAULT.equals(audience);
+        return audience != AUDIENCE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

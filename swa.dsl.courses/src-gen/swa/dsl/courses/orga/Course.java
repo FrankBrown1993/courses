@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link swa.dsl.courses.orga.Course#getTitle <em>Title</em>}</li>
- *   <li>{@link swa.dsl.courses.orga.Course#getDepartment <em>Department</em>}</li>
+ *   <li>{@link swa.dsl.courses.orga.Course#getMajor <em>Major</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.Course#getType <em>Type</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.Course#getCourse_cat <em>Course cat</em>}</li>
  *   <li>{@link swa.dsl.courses.orga.Course#getTeachers <em>Teachers</em>}</li>
@@ -51,26 +51,26 @@ public interface Course extends Declaration
   void setTitle(String value);
 
   /**
-   * Returns the value of the '<em><b>Department</b></em>' attribute.
+   * Returns the value of the '<em><b>Major</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Department</em>' attribute.
-   * @see #setDepartment(String)
-   * @see swa.dsl.courses.orga.OrgaPackage#getCourse_Department()
+   * @return the value of the '<em>Major</em>' attribute.
+   * @see #setMajor(String)
+   * @see swa.dsl.courses.orga.OrgaPackage#getCourse_Major()
    * @model
    * @generated
    */
-  String getDepartment();
+  String getMajor();
 
   /**
-   * Sets the value of the '{@link swa.dsl.courses.orga.Course#getDepartment <em>Department</em>}' attribute.
+   * Sets the value of the '{@link swa.dsl.courses.orga.Course#getMajor <em>Major</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Department</em>' attribute.
-   * @see #getDepartment()
+   * @param value the new value of the '<em>Major</em>' attribute.
+   * @see #getMajor()
    * @generated
    */
-  void setDepartment(String value);
+  void setMajor(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
